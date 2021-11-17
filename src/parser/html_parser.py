@@ -16,6 +16,11 @@ class HtmlParser:
     "Parser of HTML pages"
 
     def __init__(self, url=None, html=None):
+        """
+        HtmlParser constructor
+        :param url: URL of the web page
+        :param html: HTML content
+        """
         self.url = url
         self.html = html
         self.r = None
@@ -30,39 +35,11 @@ class HtmlParser:
         """
 
         if self.url is not None:
+            # HTTP fetch (when URL is defined)
             self.r = requests.get(self.url, headers=self.get_headers())
             self.html = self.r.text
 
         self.soup = BeautifulSoup(self.html, "lxml")
-
-    def fetch_exec_javascript(self, url, token):
-        """
-        Fetch from URL executing Javascript code
-        :param url:
-        :param token:
-        :return:
-        """
-
-        session = HTMLSession()
-        self.r = session.get(url, headers=self.get_headers())
-        self.r.html.render()
-
-        html = self.r.html.html
-
-        self.url = url
-        self.token = token
-        # self.soup = BeautifulSoup(self.r.text, features="html.parser")
-        self.soup = BeautifulSoup(html, "lxml")
-        self.html = self.r.text
-        self.titleNotFound = False
-
-    def load(self, html):
-        """
-        Load from string
-        :param html:
-        :return:
-        """
-        self.soup = BeautifulSoup(html, "lxml")
 
     def get_card(self):
 
