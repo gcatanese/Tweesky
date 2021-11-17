@@ -15,7 +15,6 @@ def generate_card(url=None, html=None):
         raise Exception("Provide either a URL or an HTML document")
 
     parser = get_parser(url, html)
-    parser.fetch()
     card = parser.get_card()
 
     return card
