@@ -42,12 +42,10 @@ class SpotifyParserTest(unittest.TestCase):
 
         self.assertIsNotNone(album)
 
-    def test_fetch(self):
+    def test_get_card(self):
         urn = 'https://open.spotify.com/track/346QlB0ow8uYiJ0KG9kftX?si=2ea01e0b84df42c7'
 
         parser = SpotifyTrack(urn)
-        parser.fetch()
-
         card = parser.get_card()
 
         self.assertEqual(card.twitter_card, 'summary_large_image')
