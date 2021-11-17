@@ -1,5 +1,5 @@
 import logging
-from src.config import *
+from config import *
 from selenium.webdriver import ChromeOptions, FirefoxOptions
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
