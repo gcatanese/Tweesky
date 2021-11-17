@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name='tweesky',
     version='0.0.1',
-    license='MIT',
+    license='Apache-2.0',
     author="Beppe Catanese",
     author_email='beppe.catanese@gmail.com',
     packages=find_packages('src'),
