@@ -25,14 +25,9 @@ def get_spotify_client_secret():
     return os.environ.get("SPOTIFY_CLIENT_SECRET", None)
 
 
-def get_home_folder():
-    return os.environ.get("HOME_LOCATION", "/tmp/")
-
-
-def get_base_url():
-    return os.environ.get("BASE_URL", "http://localhost:5000") + "/t"
-
-
 def get_screenshots_location():
-    return get_home_folder() + 'files/screenshots/'
+    return os.environ.get("SCREENSHOTS_LOCATION", "/tmp/")
+
+
+
 
