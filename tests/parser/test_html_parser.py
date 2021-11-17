@@ -1,14 +1,14 @@
 import unittest
 
-from src.parser.http_parser import HttpParser
+from src.parser.html_parser import HtmlParser
 
 
-class HttpParserTest(unittest.TestCase):
+class HtmlParserTest(unittest.TestCase):
 
     def test_fetch(self):
         url = 'https://perosa.github.io/'
 
-        parser = HttpParser(url)
+        parser = HtmlParser(url)
         parser.fetch()
 
         card = parser.get_card()
@@ -20,7 +20,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/basic.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         self.assertEqual("summary", parser.find_twitter_card())
@@ -31,7 +31,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         self.assertEqual("summary", parser.find_twitter_card())
@@ -40,7 +40,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         self.assertEqual("Perosa", parser.find_title())
@@ -49,7 +49,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         self.assertEqual("TOUR360 XT-SL Spikeless", parser.find_title())
@@ -58,7 +58,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         title = parser.find_tag_title()
@@ -69,7 +69,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         description = parser.find_description()
@@ -80,7 +80,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         description = parser.find_description()
@@ -91,7 +91,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         image = parser.find_image()
@@ -102,7 +102,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         image = parser.find_image()
@@ -115,7 +115,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-schema-org-array.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         image = parser.find_image()
@@ -126,7 +126,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         ld_script = parser.find_schema_org_script()
@@ -137,7 +137,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         ld_script = parser.find_schema_org_script()
@@ -149,7 +149,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-schema-org-array.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         ld_script = parser.find_schema_org_script()
@@ -161,7 +161,7 @@ class HttpParserTest(unittest.TestCase):
         with open('resources/html/html-with-twitter-cards-tags.html', 'r') as file:
             data = file.read().replace('\n', '')
 
-        parser = HttpParser(html=data)
+        parser = HtmlParser(html=data)
         parser.fetch()
 
         card = parser.get_card()

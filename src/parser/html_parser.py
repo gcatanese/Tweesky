@@ -12,7 +12,7 @@ from PIL import Image
 from io import BytesIO
 
 
-class HttpParser:
+class HtmlParser:
     "Parser of HTML pages"
 
     def __init__(self, url=None, html=None):
