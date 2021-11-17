@@ -14,6 +14,8 @@ class SpotifyParser:
         self.url = url
         self.sp_app = self.init_spotify()
 
+        self.fetch()
+
     def init_spotify(self):
         if get_spotify_client_id() is None:
             raise Exception("Spotify Client Id not found")

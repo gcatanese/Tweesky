@@ -28,12 +28,6 @@ class HtmlParser:
         self.titleNotFound = False
         self.descriptionNotFound = False
 
-    def fetch(self):
-        """
-        Fetch attributes
-        :return:
-        """
-
         if self.url is not None:
             # HTTP fetch (when URL is defined)
             self.r = requests.get(self.url, headers=self.get_headers())
