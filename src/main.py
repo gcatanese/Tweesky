@@ -20,27 +20,29 @@ def generate_card(url=None, html=None):
     return card
 
 
-def generate_card_as_html(target_url):
+def generate_card_as_html(url=None, html=None):
     """
     Generate Social Media card
-    :param target_url: url
+    :param url: url
+    :param html: HTML document
     :return: HTML page with OpenGraph and Twitter metadata
     """
 
-    card = generate_card(target_url)
+    card = generate_card(url, html)
     html_card = get_html(card)
 
     return html_card
 
 
-def generate_card_as_json(target_url):
+def generate_card_as_json(url=None, html=None):
     """
     Generate Social Media card
     :param target_url: url
-    :return: JSON document with OpenGraph and Twitter metadata
+    :param html: HTML document
+    :return: Card object as JSON
     """
 
-    card = generate_card(target_url)
+    card = generate_card(url, html)
     json_card = get_json(card)
 
     return json_card
