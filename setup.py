@@ -12,9 +12,9 @@ setup(
     url='https://github.com/gcatanese/Tweesky',
     keywords='OpenGraph, Twitter, Social Media',
     install_requires=[
-        'requests',
-        'spotipy',
-        'python-dotenv',
+        'requests==2.26.0',
+        'spotipy==2.19.0',
+        'python-dotenv===0.19.2',
         'beautifulsoup4===4.10.0',
         'requests-html===0.10.0',
         'selenium===4.0.0',
