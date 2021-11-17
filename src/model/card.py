@@ -1,4 +1,5 @@
 class Card:
+    "Card object"
 
     # original URL
     url = ''
