@@ -24,3 +24,12 @@ class MainTest(unittest.TestCase):
         json_card = generate_card_as_json(url)
 
         self.assertIsNotNone(json_card)
+
+    def test_generate_card_from_spotify_url(self):
+        url = 'https://open.spotify.com/track/346QlB0ow8uYiJ0KG9kftX?si=2ea01e0b84df42c7'
+        card = generate_card(url=url)
+
+        self.assertIsNotNone(card)
+        self.assertIsNotNone(card.title)
+        self.assertEqual(url, card.url)
+
