@@ -13,6 +13,7 @@ from io import BytesIO
 
 
 class HttpParser:
+    "Parser of HTML pages"
 
     def __init__(self, url=None, html=None):
         self.url = url

@@ -8,6 +8,7 @@ from model.card import Card
 
 
 class SpotifyParser:
+    "Parser of Spotify URLs (tracks, artists, albums, etc.."
 
     def __init__(self, url=None):
         self.url = url
