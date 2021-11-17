@@ -1,12 +1,12 @@
 import requests, logging
 from bs4 import BeautifulSoup
 
-from src.model.card import Card
+from model.card import Card
 import json
 
 from requests_html import HTMLSession
 
-from src.webdriver.webdriver_util import *
+from webdriver.webdriver_util import *
 
 from PIL import Image
 from io import BytesIO
@@ -14,23 +14,25 @@ from io import BytesIO
 
 class HttpParser:
 
-    def __init__(self, url):
+    def __init__(self, url=None, html=None):
         self.url = url
-
-    def fetch(self):
-        """
-        Fetch from URL
-        :return:
-        """
-
-        self.r = requests.get(self.url, headers=self.get_headers())
-        self.html = self.r.text
-        # self.soup = BeautifulSoup(self.html, features="html.parser")
-        self.soup = BeautifulSoup(self.html, "lxml")
-
+        self.html = html
+        self.r = None
+        self.soup = None
         self.titleNotFound = False
         self.descriptionNotFound = False
 
+    def fetch(self):
+        """
+        Fetch attributes
+        :return:
+        """
+
+        if self.url is not None:
+            self.r = requests.get(self.url, headers=self.get_headers())
+            self.html = self.r.text
+
+        self.soup = BeautifulSoup(self.html, "lxml")
 
     def fetch_exec_javascript(self, url, token):
         """
@@ -394,4 +396,3 @@ class HttpParser:
     def get_browser_user_agent(self):
         return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) ' \
                'Chrome/83.0.4103.61 Safari/537.36 '
-

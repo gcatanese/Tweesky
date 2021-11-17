@@ -3,13 +3,13 @@ import datetime, logging, json
 import abc
 from spotipy.oauth2 import SpotifyClientCredentials
 
-from src.config import get_spotify_client_id, get_spotify_client_secret
-from src.model.card import Card
+from config import get_spotify_client_id, get_spotify_client_secret
+from model.card import Card
 
 
 class SpotifyParser:
 
-    def __init__(self, url=''):
+    def __init__(self, url=None):
         self.url = url
         self.sp_app = self.init_spotify()
 
