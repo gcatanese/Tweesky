@@ -1,6 +1,6 @@
 import unittest
 
-from src.main import generate_card, generate_card_as_html
+from src.main import *
 
 
 class MainTest(unittest.TestCase):
@@ -19,3 +19,8 @@ class MainTest(unittest.TestCase):
 
         self.assertIsNotNone(html_card)
 
+    def test_generate_card_as_json(self):
+        url = 'https://perosa.github.io/'
+        json_card = generate_card_as_json(url)
+
+        self.assertIsNotNone(json_card)
