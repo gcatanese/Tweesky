@@ -1,21 +1,72 @@
 # Tweesky
 
-_URL shortener with Social Media preview: create, customise and share on Social Media your web pages._
+Tweesky is a Python library for extracting **HTML**, **OpenGraph** and **Twitter** metadata from URLs, HTML pages and 
+Spotify links.
 
-Tweesky is a Python library for processing URLs and generating a HTML page with **OpenGraph** and **Twitter** metadata.
+## How to use it
 
-## The concept
-From any URL (Web page, blog, Social Media, Spotify link, etc..) it generates **a HTML document** (Preview Card) 
-with title, description and image. 
-The HTML page contains the OpenGraph and Twitter metadata that are used on Social Media to display the preview 
-of any link posted by the user.
+Grab attributes from a URL
+```
+    website = 'https://www.nike.com/'
+    card = generate_card(url=website)
+    
+    print(card.title)
+    print(card.image)
+```
 
-Social Media users see the Web Site preview and are always redirected to the original URL when clicking on the card.
+Grab attributes from an HTML document
+```
+    with open('doc.html', 'r') as reader:
+        doc = reader.readlines()
+    card = generate_card(html=doc)
+    
+    print(card.title)
+    print(card.image)
+```
+
+## Output options
+
+There are different options to format the card:
+* Card object (default): access the Python object to obtain the metadata
+* JSON output: the Card content is provided as JSON
+* HTML file: an HTML file is provided including the metadata necessary for creating the Social Media preview
+
+### HTML format
+
+When using `generate_card_as_html()` method the output is an HTML document which can be shared on Social Media to
+create the Preview of the the URL you are sharing. 
+The HTML document provides all necessary OpenGraph/Twitter tags as well as the Javascript code to redirect the users to
+the original page: save the file on an accessible location and distribute the link through the Social Media channels.
+
+```
+<html>
+    <head>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Python Tutorials – Real Python" />
+        <meta name="twitter:description" content="Learn Python online" />
+        <meta name="twitter:image" content="https://cdn.realpython.com/static/logo.png" />
+        <meta name="twitter:site" content="@realpython" />
+        
+        <meta property="og:title" content="Python Tutorials – Real Python" />
+        <meta property="og:description" content="Learn Python online" />
+        <meta property="og:image" content="https://cdn.realpython.com/static/logo.png" />
+        
+        <meta http-equiv="refresh" content="0; url=https://realpython.com/" /> 
+    </head>
+    <body >
+        &nbsp;
+    </body>
+</html>  
+```
+
+
+## More Info
 
 To find out more:
+* [Tweesky Web Site](https://tweesky.com/)
 * [Tweesky Intro](https://tweesky.com/intro)
 * [Intro on Medium](https://medium.com/@beppe.catanese/tweesky-dont-miss-the-twitter-card-preview-19c95f3417d9)
 
-# Use Tweesky
+
 
 
