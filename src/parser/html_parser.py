@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 
 from model.card import Card
 import json
-
-from requests_html import HTMLSession
+import uuid
 
 from webdriver.webdriver_util import *
 
@@ -182,7 +181,8 @@ class HtmlParser:
             return logo
 
         try:
-            return self.get_screenshot_url()
+            # trying screenshot
+            return self.take_screenshot()
         except Exception as e:
             logging.exception(e)
 
@@ -269,14 +269,12 @@ class HtmlParser:
 
         return schema_org_script
 
-    def get_screenshot_url(self):
+    def take_screenshot(self):
 
-        screenshot_url = get_base_url() + '/img/' + self.token
-
-        filename = get_screenshots_location() + self.token + '.png'
+        filename = get_screenshots_location() + str(uuid.uuid4()) + '.png'
         save_screenshot(self.url, filename)
 
-        return screenshot_url
+        return filename
 
     def find_twitter_site(self):
         return self.find_twitter_meta('twitter:site')
