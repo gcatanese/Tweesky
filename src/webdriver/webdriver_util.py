@@ -1,4 +1,3 @@
-import logging
 from config import *
 from selenium.webdriver import ChromeOptions, FirefoxOptions
 from selenium.webdriver.common.keys import Keys
@@ -13,49 +12,6 @@ WEBDRIVER_MAX_TABS = 10
 
 n = 0
 driver = None
-
-
-def get_screenshot_from_disk(token):
-    read_data = None
-
-    try:
-
-        filename = get_screenshots_location() + token + '.png'
-
-        with open(filename, "rb") as f:
-            read_data = f.read()
-
-    except FileNotFoundError as e:
-        logging.warning(f"File not found {filename}")
-
-    return read_data
-
-
-def get_screenshot_from_url(url):
-    try:
-        driver = open_driver()
-
-        # driver.set_window_size(480, 320)
-        tic = time.perf_counter()
-
-        open_tab()
-
-        driver.get(url)
-        toc = time.perf_counter()
-        logging.info(f"Get in {toc - tic:0.4f} seconds")
-
-        tic = time.perf_counter()
-        img = driver.get_screenshot_as_png()
-        toc = time.perf_counter()
-        logging.info(f"Screenshot in {toc - tic:0.4f} seconds")
-
-        logging.info(f"get_screenshot_from_url in {toc - tic:0.4f} seconds")
-
-    finally:
-        close_tab()
-        close_driver()
-
-    return img
 
 
 def save_screenshot(url, filename):
@@ -82,31 +38,6 @@ def save_screenshot(url, filename):
         close_driver()
 
     return img
-
-
-def get_html_from_url(url):
-    try:
-        driver = open_driver()
-
-        tic = time.perf_counter()
-
-        open_tab()
-
-        driver.get(url)
-        time.sleep(4)
-
-        html = driver.page_source
-        # html = driver.find_element_by_tag_name('html').get_attribute('innerHTML')
-
-        toc = time.perf_counter()
-
-        logging.info(f"get_html_from_url in {toc - tic:0.4f} seconds")
-
-    finally:
-        close_tab()
-        close_driver()
-
-    return html
 
 
 def open_driver():
@@ -184,3 +115,10 @@ def force_close_driver():
         driver.quit()
         n = 0
         driver = None
+
+
+# User-Agent HTTP Header
+def get_browser_user_agent(self):
+    return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) ' \
+           'Chrome/83.0.4103.61 Safari/537.36 '
+
