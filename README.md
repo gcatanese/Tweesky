@@ -33,8 +33,8 @@ There are different options to format the card:
 
 ### HTML format
 
-When using `generate_card_as_html()` method the output is an HTML document which can be shared on Social Media to
-create the Preview of the the URL you are sharing. 
+When using `main.generate_card_as_html()` method the output is an HTML document which can be shared **as-is** on Social Media.
+
 The HTML document provides all necessary OpenGraph/Twitter tags as well as the Javascript code to redirect the users to
 the original page: save the file on an accessible location and distribute the link through the Social Media channels.
 
@@ -67,10 +67,10 @@ When finding the image for the Preview the library will search the following:
 * OpenGraph metadata
 * JSON LD
 
-When no image is found [WebDriver](https://selenium-python.readthedocs.io/getting-started.html) is used to take a 
+When no image is found [WebDriver](https://selenium-python.readthedocs.io/getting-started.html) can be used to take a 
 screenshot.
 
-Configure WebDriver settings accordingly:
+In that case configure WebDriver settings accordingly:
 ```
 # path to driver
 WEBDRIVER_PATH=/webdriver/chromedriver
