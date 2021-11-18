@@ -1,6 +1,6 @@
 import unittest
 
-from tweesky.parser.html_parser import HtmlParser
+from src.tweesky.parser.html_parser import HtmlParser
 
 
 class HtmlParserTest(unittest.TestCase):
@@ -16,7 +16,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertIsNotNone(card)
 
     def test_find_basic_html(self):
-        with open('resources/html/basic.html', 'r') as file:
+        with open('tweesky/resources/html/basic.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -26,7 +26,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("My Site Homepage", parser.find_description())
 
     def test_find_twitter_card(self):
-        with open('resources/html/default.html', 'r') as file:
+        with open('tweesky/resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -34,7 +34,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("summary", parser.find_twitter_card())
 
     def test_find_title(self):
-        with open('resources/html/default.html', 'r') as file:
+        with open('tweesky/resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -42,7 +42,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("Perosa", parser.find_title())
 
     def test_find_title_from_schema_org(self):
-        with open('resources/html/html-with-schema-org.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -50,7 +50,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("TOUR360 XT-SL Spikeless", parser.find_title())
 
     def test_find_tag_title(self):
-        with open('resources/html/default.html', 'r') as file:
+        with open('tweesky/resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -60,7 +60,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("My Site", title.string)
 
     def test_find_description(self):
-        with open('resources/html/default.html', 'r') as file:
+        with open('tweesky/resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -70,7 +70,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertTrue("#chatbots #webhoooks #abtesting" in description)
 
     def test_find_description_from_schema_org(self):
-        with open('resources/html/html-with-schema-org.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -80,7 +80,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertTrue("Comfort and confidence go " in description)
 
     def test_find_image(self):
-        with open('resources/html/default.html', 'r') as file:
+        with open('tweesky/resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -90,7 +90,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("https://perosa.github.io/images/perosa.png", image)
 
     def test_find_image_from_schema_org(self):
-        with open('resources/html/html-with-schema-org.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -102,7 +102,7 @@ class HtmlParserTest(unittest.TestCase):
             image)
 
     def test_find_image_from_schema_org_array(self):
-        with open('resources/html/html-with-schema-org-array.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-schema-org-array.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -112,7 +112,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertEqual("https://perosa.github.io/static/perosa.jpg", image)
 
     def test_schema_org_script_not_found(self):
-        with open('resources/html/default.html', 'r') as file:
+        with open('tweesky/resources/html/default.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -122,7 +122,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertIsNone(ld_script)
 
     def test_find_schema_org_script(self):
-        with open('resources/html/html-with-schema-org.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-schema-org.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -133,7 +133,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertIsNotNone(ld_script)
 
     def test_find_schema_org_script_with_array(self):
-        with open('resources/html/html-with-schema-org-array.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-schema-org-array.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
@@ -144,7 +144,7 @@ class HtmlParserTest(unittest.TestCase):
         self.assertIsNotNone(ld_script)
 
     def test_find_site_with_twitter_meta(self):
-        with open('resources/html/html-with-twitter-cards-tags.html', 'r') as file:
+        with open('tweesky/resources/html/html-with-twitter-cards-tags.html', 'r') as file:
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
