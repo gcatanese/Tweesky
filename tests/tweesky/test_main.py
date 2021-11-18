@@ -1,6 +1,6 @@
 import unittest
 
-from src.main import *
+from tweesky.main import *
 
 
 class MainTest(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from src.parser.spotify_parser import SpotifyTrack, SpotifyArtist, SpotifyPlaylist, SpotifyShow, SpotifyEpisode, \
+from tweesky.parser.spotify_parser import SpotifyTrack, SpotifyArtist, SpotifyPlaylist, SpotifyShow, SpotifyEpisode, \
     SpotifyAlbum
 
 

@@ -1,6 +1,6 @@
 import unittest
 
-from src.parser.html_parser import HtmlParser
+from tweesky.parser.html_parser import HtmlParser
 
 
 class HtmlParserTest(unittest.TestCase):
@@ -9,7 +9,6 @@ class HtmlParserTest(unittest.TestCase):
         url = 'https://perosa.github.io/'
 
         parser = HtmlParser(url)
-        parser.fetch()
 
         card = parser.get_card()
 
@@ -21,7 +20,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         self.assertEqual("summary", parser.find_twitter_card())
         self.assertEqual("My Site", parser.find_title())
@@ -32,7 +30,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         self.assertEqual("summary", parser.find_twitter_card())
 
@@ -41,7 +38,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         self.assertEqual("Perosa", parser.find_title())
 
@@ -50,7 +46,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         self.assertEqual("TOUR360 XT-SL Spikeless", parser.find_title())
 
@@ -59,7 +54,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         title = parser.find_tag_title()
 
@@ -70,7 +64,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         description = parser.find_description()
 
@@ -81,7 +74,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         description = parser.find_description()
 
@@ -92,7 +84,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         image = parser.find_image()
 
@@ -103,7 +94,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         image = parser.find_image()
 
@@ -116,7 +106,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         image = parser.find_image()
 
@@ -127,7 +116,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         ld_script = parser.find_schema_org_script()
 
@@ -138,7 +126,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         ld_script = parser.find_schema_org_script()
         # print(ld_script)
@@ -150,7 +137,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         ld_script = parser.find_schema_org_script()
         # print(ld_script)
@@ -162,7 +148,6 @@ class HtmlParserTest(unittest.TestCase):
             data = file.read().replace('\n', '')
 
         parser = HtmlParser(html=data)
-        parser.fetch()
 
         card = parser.get_card()
 
