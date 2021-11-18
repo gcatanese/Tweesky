@@ -271,8 +271,11 @@ class HtmlParser:
 
     def take_screenshot(self):
 
-        filename = get_screenshots_location() + "/" + str(uuid.uuid4()) + ".png"
-        save_screenshot(self.url, filename)
+        filename = ''
+
+        if get_webdriver_type() != 'none':
+            filename = get_screenshots_location() + "/" + str(uuid.uuid4()) + ".png"
+            save_screenshot(self.url, filename)
 
         return filename
 

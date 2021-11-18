@@ -9,8 +9,8 @@ def get_webdriver_path():
 
 
 def get_webdriver_type():
-    # returns webdriver to be used: remote | local
-    return os.environ.get("WEBDRIVER_TYPE", "local")
+    # returns webdriver to be used: none | local | remote
+    return os.environ.get("WEBDRIVER_TYPE", "none")
 
 
 def get_webdriver_remote_host():
