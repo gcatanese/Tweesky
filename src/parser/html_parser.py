@@ -357,12 +357,14 @@ class HtmlParser:
         # h, w = img.size
         print(f'img.shape {img.size}')
 
+    # HTTP Headers
     def get_headers(self):
         return {'User-Agent': self.get_browser_user_agent(),
                 'Accept': 'text/html, application/xhtml+xml, application/xml;q=0.9, image/avif, image/webp, image/apng, */*;q=0.8, application/signed-exchange;v=b3;q=0.9',
                 'Accept-Encoding': 'gzip, deflate',
                 'Accept-Language': 'en-GB,en;q=0.9'}
 
+    # User-Agent HTTP Header
     def get_browser_user_agent(self):
         return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) ' \
                'Chrome/83.0.4103.61 Safari/537.36 '
