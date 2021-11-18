@@ -1,6 +1,6 @@
-from output.json.json_output import get_json
-from src.output.html.html_output import get_html
-from src.parser.parser_factory import get_parser
+from src.tweesky.output.json.json_output import get_json
+from src.tweesky.output.html.html_output import get_html
+from src.tweesky.parser.parser_factory import get_parser
 
 
 def generate_card(url=None, html=None):

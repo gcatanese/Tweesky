@@ -1,14 +1,9 @@
 import requests, logging
 from bs4 import BeautifulSoup
 
-from model.card import Card
+from src.tweesky.model.card import Card
 import json
 import uuid
-
-from webdriver.webdriver_util import *
-
-from PIL import Image
-from io import BytesIO
 
 
 class HtmlParser:

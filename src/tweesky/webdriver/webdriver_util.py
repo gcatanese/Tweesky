@@ -1,5 +1,5 @@
-from config import *
-from selenium.webdriver import ChromeOptions, FirefoxOptions
+from tweesky.config import *
+from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 import time

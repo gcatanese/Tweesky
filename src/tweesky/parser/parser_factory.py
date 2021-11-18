@@ -1,5 +1,5 @@
-from src.parser.html_parser import HtmlParser
-from src.parser.spotify_parser import *
+from src.tweesky.parser.html_parser import HtmlParser
+from src.tweesky.parser.spotify_parser import *
 
 
 def get_parser(url=None, html=None):
