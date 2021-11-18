@@ -271,7 +271,7 @@ class HtmlParser:
 
     def take_screenshot(self):
 
-        filename = get_screenshots_location() + str(uuid.uuid4()) + '.png'
+        filename = get_screenshots_location() + "/" + str(uuid.uuid4()) + ".png"
         save_screenshot(self.url, filename)
 
         return filename
@@ -348,14 +348,6 @@ class HtmlParser:
 
     def is_valid_url(self, url):
         return url.lower().startswith('http')
-
-    def print_image_size(self, url):
-
-        response = requests.get(url)
-        img = Image.open(BytesIO(response.content))
-
-        # h, w = img.size
-        print(f'img.shape {img.size}')
 
     # HTTP Headers
     def get_headers(self):
