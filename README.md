@@ -60,6 +60,26 @@ the original page: save the file on an accessible location and distribute the li
 ```
 
 
+## Images
+
+When finding the image for the Preview the library will search the following:
+* Twitter Card metadata
+* OpenGraph metadata
+* JSON LD
+
+When no image is found [WebDriver](https://selenium-python.readthedocs.io/getting-started.html) is used to take a 
+screenshot.
+
+Configure WebDriver settings accordingly:
+```
+# path to driver
+WEBDRIVER_PATH=/webdriver/chromedriver
+# local or remote WebDriver
+WEBDRIVER_TYPE=local
+# path to screenshot files
+SCREENSHOTS_LOCATION=/tmp
+```
+
 ## More Info
 
 To find out more:
