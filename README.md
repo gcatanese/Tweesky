@@ -83,9 +83,9 @@ SCREENSHOTS_LOCATION=/tmp
 ## More Info
 
 To find out more:
-* [Tweesky Web Site](https://tweesky.com/)
-* [Tweesky Intro](https://tweesky.com/intro)
-* [Intro on Medium](https://medium.com/@beppe.catanese/tweesky-dont-miss-the-twitter-card-preview-19c95f3417d9)
+* [Tweesky Web Site](https://tweesky.com/): example of what Tweesky can do
+* [Intro on Medium](https://medium.com/@beppe.catanese/tweesky-dont-miss-the-twitter-card-preview-19c95f3417d9): 
+Tweesky: don’t miss the Twitter Card preview
 
 
 
