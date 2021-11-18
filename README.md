@@ -5,10 +5,14 @@ Spotify links.
 
 ## How to use it
 
+Install the module: [PyPi Tweesky page](https://pypi.org/project/tweesky/)
+
 Grab attributes from a URL
 ```
+    import tweesky.main as tweesky
+    
     website = 'https://www.nike.com/'
-    card = generate_card(url=website)
+    card = tweesky.generate_card(url=website)
     
     print(card.title)
     print(card.image)
@@ -16,9 +20,11 @@ Grab attributes from a URL
 
 Grab attributes from an HTML document
 ```
+    import tweesky.main as tweesky
+
     with open('doc.html', 'r') as reader:
         doc = reader.readlines()
-    card = generate_card(html=doc)
+    card = tweesky.generate_card(html=doc)
     
     print(card.title)
     print(card.image)
