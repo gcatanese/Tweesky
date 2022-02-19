@@ -1,5 +1,7 @@
 import spotipy
-import datetime, logging, json
+import datetime
+import logging
+import json
 import abc
 from spotipy.oauth2 import SpotifyClientCredentials
 
@@ -118,8 +120,8 @@ class SpotifyTrack(SpotifyParser):
         title = self.track['name']
         album = self.find_album()
         total_tracks = self.track['album']['total_tracks']
-        artist_homepage = self.track['artists'][0]['external_urls']['spotify']
-        duration = self.find_duration()
+        # artist_homepage = self.track['artists'][0]['external_urls']['spotify']
+        # duration = self.find_duration()
         genres = self.artist['genres']
         album_release_date = extract_year(self.find_album_release_date())
 
@@ -190,7 +192,7 @@ class SpotifyAlbum(SpotifyParser):
         return f"Play \'{album_name} by {artist_name} ({artist_followers} followers)"
 
     def find_description(self):
-        artist_homepage = self.artist['external_urls']['spotify']
+        # artist_homepage = self.artist['external_urls']['spotify']
         album_name = self.album['name']
         total_tracks = self.album['total_tracks']
         album_release_date = extract_year(self.album['release_date'])
@@ -224,11 +226,11 @@ class SpotifyShow(SpotifyParser):
     def find_title(self):
         show_name = self.show['name']
         publisher = self.show['publisher']
-        total_episodes = self.show['total_episodes']
-        languages = self.show['languages']
+        # total_episodes = self.show['total_episodes']
+        # languages = self.show['languages']
 
         last_episode_release_date = self.show['episodes']['items'][0]['release_date']
-        last_episode_title = self.show['episodes']['items'][0]['name']
+        # last_episode_title = self.show['episodes']['items'][0]['name']
 
         return f"Listen to \'{show_name}\' by {publisher} (last episode on {format_date(last_episode_release_date)}) "
 
@@ -305,7 +307,7 @@ class SpotifyPlaylist(SpotifyParser):
         return f"Listen to \'{playlist_name}\' by {owner} ({str_followers}) "
 
     def find_description(self):
-        playlist_description = self.playlist['description']
+        # playlist_description = self.playlist['description']
 
         tracks = self.playlist['tracks']['items']
 
@@ -377,6 +379,3 @@ def format_duration(duration_ms):
 
 def format_followers(num_followers):
     return f'{num_followers:,}'
-
-
-

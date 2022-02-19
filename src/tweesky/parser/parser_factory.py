@@ -1,5 +1,8 @@
+import logging
+
 from src.tweesky.parser.html_parser import HtmlParser
-from src.tweesky.parser.spotify_parser import *
+from tweesky.parser.spotify_parser import SpotifyTrack, SpotifyAlbum, SpotifyArtist, SpotifyEpisode, SpotifyPlaylist, \
+    SpotifyShow
 
 
 def get_parser(url=None, html=None):

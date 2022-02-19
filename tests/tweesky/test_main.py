@@ -32,4 +32,3 @@ class MainTest(unittest.TestCase):
         self.assertIsNotNone(card)
         self.assertIsNotNone(card.title)
         self.assertEqual(url, card.url)
-

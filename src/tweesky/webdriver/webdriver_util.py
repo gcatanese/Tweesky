@@ -1,4 +1,3 @@
-from tweesky.config import *
 from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
@@ -6,6 +5,8 @@ import time
 from selenium.webdriver.remote.remote_connection import LOGGER, logging
 
 # Logging on Remote Selenium
+from tweesky.config import get_webdriver_type, get_webdriver_remote_host, get_webdriver_path
+
 LOGGER.setLevel(logging.WARNING)
 
 WEBDRIVER_MAX_TABS = 10
@@ -46,13 +47,12 @@ def open_driver():
 
     if driver is None:
         options = ChromeOptions()
-        #options = FirefoxOptions()
+        # options = FirefoxOptions()
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_experimental_option("detach", True)
         # options.add_argument("--enable-javascript")
-
 
         user_agent = get_browser_user_agent()
         options.add_argument('user-agent={0}'.format(user_agent))
@@ -61,7 +61,7 @@ def open_driver():
 
         if get_webdriver_type() == 'local':
             driver = webdriver.Chrome(options=options, executable_path=get_webdriver_path())
-            #driver = webdriver.Firefox(options=options, executable_path=get_webdriver_path())
+            # driver = webdriver.Firefox(options=options, executable_path=get_webdriver_path())
         else:
             driver = webdriver.Remote(get_webdriver_remote_host() + "/wd/hub", options.to_capabilities())
 
@@ -76,7 +76,7 @@ def open_tab():
     global driver
 
     if driver is not None:
-        driver.execute_script(f"window.open();")
+        driver.execute_script("window.open();")
         logging.info(f"Open tab #{n}")
         n = n + 1
     else:
@@ -121,4 +121,3 @@ def force_close_driver():
 def get_browser_user_agent(self):
     return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) ' \
            'Chrome/83.0.4103.61 Safari/537.36 '
-

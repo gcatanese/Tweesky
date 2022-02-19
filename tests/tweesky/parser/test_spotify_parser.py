@@ -69,13 +69,13 @@ class SpotifyParserTest(unittest.TestCase):
         self.assertEqual(format_date('2021-03-29'), '29 Mar 2021')
 
     def test_format_json_date(self):
-        self.assertEqual('29 Mar 2021', format_json_date('2021-03-29T20:44:50Z')  )
+        self.assertEqual('29 Mar 2021', format_json_date('2021-03-29T20:44:50Z'))
 
     def test_convert_to_hashtags(self):
-        self.assertEqual(convert_to_hashtags(['rock','trance']), '#rock #trance')
+        self.assertEqual(convert_to_hashtags(['rock', 'trance']), '#rock #trance')
 
     def test_convert_to_hashtags_including_spaces(self):
-        self.assertEqual(convert_to_hashtags(['new rock','best trance']), '#newrock #besttrance')
+        self.assertEqual(convert_to_hashtags(['new rock', 'best trance']), '#newrock #besttrance')
 
     def test_convert_to_hashtags_none(self):
         self.assertEqual(convert_to_hashtags(None), '')

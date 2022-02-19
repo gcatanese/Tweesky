@@ -1,9 +1,13 @@
-import requests, logging
+import requests
+import logging
 from bs4 import BeautifulSoup
 
 from src.tweesky.model.card import Card
 import json
 import uuid
+
+from tweesky.config import get_webdriver_type, get_screenshots_location
+from tweesky.webdriver.webdriver_util import save_screenshot
 
 
 class HtmlParser:
@@ -100,7 +104,7 @@ class HtmlParser:
         return 'n/a'
 
     def has_title(self):
-        title = self.find_title();
+        title = self.find_title()
 
         if title == 'n/a':
             return False
@@ -259,7 +263,7 @@ class HtmlParser:
 
             if '@type' not in schema_org_script:
                 # type not found: discard schema org info
-                logging.warning(f'Ignore Schema Org json: @type attribute is undefined')
+                logging.warning('Ignore Schema Org json: @type attribute is undefined')
                 schema_org_script = None
 
         return schema_org_script
@@ -350,7 +354,8 @@ class HtmlParser:
     # HTTP Headers
     def get_headers(self):
         return {'User-Agent': self.get_browser_user_agent(),
-                'Accept': 'text/html, application/xhtml+xml, application/xml;q=0.9, image/avif, image/webp, image/apng, */*;q=0.8, application/signed-exchange;v=b3;q=0.9',
+                'Accept': 'text/html, application/xhtml+xml, application/xml;q=0.9, image/avif, image/webp, image/apng,'
+                          ' */*;q=0.8, application/signed-exchange;v=b3;q=0.9',
                 'Accept-Encoding': 'gzip, deflate',
                 'Accept-Language': 'en-GB,en;q=0.9'}
 

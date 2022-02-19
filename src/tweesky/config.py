@@ -27,7 +27,3 @@ def get_spotify_client_secret():
 
 def get_screenshots_location():
     return os.environ.get("SCREENSHOTS_LOCATION", "/tmp")
-
-
-
-
