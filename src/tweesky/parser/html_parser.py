@@ -6,8 +6,8 @@ from src.tweesky.model.card import Card
 import json
 import uuid
 
-from tweesky.config import get_webdriver_type, get_screenshots_location
-from tweesky.webdriver.webdriver_util import save_screenshot
+from src.tweesky.config import get_webdriver_type, get_screenshots_location
+from src.tweesky.webdriver.webdriver_util import save_screenshot
 
 
 class HtmlParser:
