@@ -1,7 +1,7 @@
 import logging
 import unittest
 
-from tweesky.webdriver.webdriver_util import get_screenshot_from_url
+from src.tweesky.webdriver.webdriver_util import get_screenshot_from_url
 
 
 class WebDriverUtilTest(unittest.TestCase):

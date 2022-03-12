@@ -1,6 +1,6 @@
 import unittest
 
-from tweesky.parser.html_parser import HtmlParser
+from src.tweesky.parser.html_parser import HtmlParser
 
 
 class HtmlParserTest(unittest.TestCase):
