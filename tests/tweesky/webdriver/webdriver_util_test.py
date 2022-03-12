@@ -15,4 +15,3 @@ class WebDriverUtilTest(unittest.TestCase):
 
     def test_get_screenshot_from_url(self):
         self.assertIsNotNone(get_screenshot_from_url("https://perosa.github.io/"))
-        
