@@ -1,6 +1,6 @@
 import unittest
 
-from src.tweesky.main import generate_card, generate_card_as_html, generate_card_as_json
+from tweesky.main import generate_card, generate_card_as_html, generate_card_as_json
 
 
 class MainTest(unittest.TestCase):
