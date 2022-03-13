@@ -1,7 +1,7 @@
 import logging
 
-from src.tweesky.parser.html_parser import HtmlParser
-from src.tweesky.parser.spotify_parser import SpotifyTrack, SpotifyAlbum, SpotifyArtist, SpotifyEpisode, SpotifyPlaylist, \
+from tweesky.parser.html_parser import HtmlParser
+from tweesky.parser.spotify_parser import SpotifyTrack, SpotifyAlbum, SpotifyArtist, SpotifyEpisode, SpotifyPlaylist, \
     SpotifyShow
 
 
