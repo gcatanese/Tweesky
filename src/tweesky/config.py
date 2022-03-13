@@ -5,7 +5,7 @@ load_dotenv(find_dotenv())
 
 
 def get_webdriver_path():
-    return os.environ.get("WEBDRIVER_PATH", "tweesky/webdriver/chromedriver")
+    return os.environ.get("WEBDRIVER_PATH", "webdriver/chromedriver")
 
 
 def get_webdriver_type():
