@@ -118,6 +118,6 @@ def force_close_driver():
 
 
 # User-Agent HTTP Header
-def get_browser_user_agent(self):
+def get_browser_user_agent():
     return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) ' \
            'Chrome/83.0.4103.61 Safari/537.36 '
