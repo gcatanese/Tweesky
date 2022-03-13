@@ -28,6 +28,7 @@ jobs:
       run: |
         flake8
     - name: Run unit testing
+      working-directory: ./src
       env:
         SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
         SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
