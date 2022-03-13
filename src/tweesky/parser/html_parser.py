@@ -275,6 +275,8 @@ class HtmlParser:
         if get_webdriver_type() != 'none':
             filename = get_screenshots_location() + "/" + str(uuid.uuid4()) + ".png"
             save_screenshot(self.url, filename)
+        else:
+            logging.warning('skip take_screenshot: webdriver_type is undefined')
 
         return filename
 
