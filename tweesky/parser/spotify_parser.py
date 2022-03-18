@@ -5,8 +5,8 @@ import json
 import abc
 from spotipy.oauth2 import SpotifyClientCredentials
 
-from src.tweesky.config import get_spotify_client_id, get_spotify_client_secret
-from src.tweesky.model.card import Card
+from tweesky.config import get_spotify_client_id, get_spotify_client_secret
+from tweesky.model.card import Card
 
 
 class SpotifyParser:

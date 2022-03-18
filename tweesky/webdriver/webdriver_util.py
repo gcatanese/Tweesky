@@ -7,7 +7,7 @@ from selenium.webdriver.remote.remote_connection import LOGGER, logging
 from selenium.webdriver.chrome.service import Service
 
 # Logging on Remote Selenium
-from src.tweesky.config import get_webdriver_type, get_webdriver_remote_host, get_webdriver_path
+from tweesky.config import get_webdriver_type, get_webdriver_remote_host, get_webdriver_path
 
 LOGGER.setLevel(logging.WARNING)
 
