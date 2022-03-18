@@ -91,7 +91,7 @@ def close_tab():
     global driver
 
     if driver is not None:
-        #tag = driver.find_element_by_tag_name('body')
+        # tag = driver.find_element_by_tag_name('body')
         tag = driver.find_element(by=By.TAG_NAME, value='body')
         if tag is not None:
             tag.send_keys(Keys.COMMAND + 'w')
