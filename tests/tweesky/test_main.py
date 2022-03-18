@@ -1,6 +1,6 @@
 import unittest
 
-from src.tweesky.main import generate_card, generate_card_as_html, generate_card_as_json
+from tweesky.main import generate_card, generate_card_as_html, generate_card_as_json
 
 
 class MainTest(unittest.TestCase):
@@ -12,6 +12,14 @@ class MainTest(unittest.TestCase):
         self.assertIsNotNone(card)
         self.assertEqual('Perosa', card.title)
         self.assertEqual(url, card.url)
+
+    def test_generate_card_with_screenshot(self):
+        url = 'https://www.frenkiedejong.com/'
+        card = generate_card(url)
+
+        self.assertIsNotNone(card)
+        self.assertEqual(url, card.url)
+        self.assertTrue(card.image.startswith("file://"))
 
     def test_generate_card_as_html(self):
         url = 'https://perosa.github.io/'
