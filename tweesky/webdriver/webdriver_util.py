@@ -1,11 +1,13 @@
 from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 from selenium.webdriver.remote.remote_connection import LOGGER, logging
+from selenium.webdriver.chrome.service import Service
 
 # Logging on Remote Selenium
-from tweesky.config import get_webdriver_type, get_webdriver_remote_host, get_webdriver_path
+from src.tweesky.config import get_webdriver_type, get_webdriver_remote_host, get_webdriver_path
 
 LOGGER.setLevel(logging.WARNING)
 
@@ -60,7 +62,8 @@ def open_driver():
         tic = time.perf_counter()
 
         if get_webdriver_type() == 'local':
-            driver = webdriver.Chrome(options=options, executable_path=get_webdriver_path())
+            s = Service(get_webdriver_path())
+            driver = webdriver.Chrome(options=options, service=s)
             # driver = webdriver.Firefox(options=options, executable_path=get_webdriver_path())
         else:
             driver = webdriver.Remote(get_webdriver_remote_host() + "/wd/hub", options.to_capabilities())
@@ -88,7 +91,8 @@ def close_tab():
     global driver
 
     if driver is not None:
-        tag = driver.find_element_by_tag_name('body')
+        #tag = driver.find_element_by_tag_name('body')
+        tag = driver.find_element(by=By.TAG_NAME, value='body')
         if tag is not None:
             tag.send_keys(Keys.COMMAND + 'w')
             n = n - 1

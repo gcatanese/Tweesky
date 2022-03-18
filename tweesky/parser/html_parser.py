@@ -2,12 +2,12 @@ import requests
 import logging
 from bs4 import BeautifulSoup
 
-from tweesky.model.card import Card
+from src.tweesky.model.card import Card
 import json
 import uuid
 
-from tweesky.config import get_webdriver_type, get_screenshots_location
-from tweesky.webdriver.webdriver_util import save_screenshot
+from src.tweesky.config import get_webdriver_type, get_screenshots_location
+from src.tweesky.webdriver.webdriver_util import save_screenshot
 
 
 class HtmlParser:
@@ -278,7 +278,7 @@ class HtmlParser:
         else:
             logging.warning('skip take_screenshot: webdriver_type is undefined')
 
-        return filename
+        return 'file://' + filename
 
     def find_twitter_site(self):
         return self.find_twitter_meta('twitter:site')

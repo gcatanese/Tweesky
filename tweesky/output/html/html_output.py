@@ -98,6 +98,10 @@ def get_html(card):
     output = output.replace('__twitter:app:country__',
                             replace_tag('twitter:app:country', card.twitter_app_country))
 
+    # replace with meta REFRESH
+    output = output.replace('__REDIRECT__',
+                            '<meta http-equiv="refresh" content="0; url=' + card.url + '" />')
+
     return output
 
 
