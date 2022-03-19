@@ -4,10 +4,6 @@ from bs4 import BeautifulSoup
 
 from tweesky.model.card import Card
 import json
-import uuid
-
-from tweesky.config import get_webdriver_type, get_screenshots_location
-from tweesky.webdriver.webdriver_util import save_screenshot
 
 
 class HtmlParser:
@@ -179,12 +175,6 @@ class HtmlParser:
         if logo is not None and self.is_valid_url(logo):
             return logo
 
-        try:
-            # trying screenshot
-            return self.take_screenshot()
-        except Exception as e:
-            logging.exception(e)
-
         return 'n/a'
 
     def find_og_image(self):
@@ -267,18 +257,6 @@ class HtmlParser:
                 schema_org_script = None
 
         return schema_org_script
-
-    def take_screenshot(self):
-
-        filename = ''
-
-        if get_webdriver_type() != 'none':
-            filename = get_screenshots_location() + "/" + str(uuid.uuid4()) + ".png"
-            save_screenshot(self.url, filename)
-        else:
-            logging.warning('skip take_screenshot: webdriver_type is undefined')
-
-        return 'file://' + filename
 
     def find_twitter_site(self):
         return self.find_twitter_meta('twitter:site')
