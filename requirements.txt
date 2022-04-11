@@ -1,5 +1,5 @@
 requests==2.27.1
-beautifulsoup4===4.10.0
+beautifulsoup4===4.11.1
 Pillow===9.1.0
 python-dotenv===0.20.0
 requests-html===0.10.0
