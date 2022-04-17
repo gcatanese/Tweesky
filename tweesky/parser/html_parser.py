@@ -73,7 +73,7 @@ class HtmlParser:
 
         if twitter_card is None:
             # default value
-            twitter_card = 'summary'
+            twitter_card = 'summary_large_image'
 
         return twitter_card
 
