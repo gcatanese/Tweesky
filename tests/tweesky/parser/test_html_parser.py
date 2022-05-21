@@ -21,7 +21,7 @@ class HtmlParserTest(unittest.TestCase):
 
         parser = HtmlParser(html=data)
 
-        self.assertEqual("summary", parser.find_twitter_card())
+        self.assertEqual("summary_large_image", parser.find_twitter_card())
         self.assertEqual("My Site", parser.find_title())
         self.assertEqual("My Site Homepage", parser.find_description())
 
