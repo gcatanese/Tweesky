@@ -10,4 +10,5 @@ tmp
 .pypirc
 dist
 Tweesky.egg-info
+readme.txt
 
