@@ -3,7 +3,7 @@
 Tweesky is a Python library for extracting **HTML**, **OpenGraph** and **Twitter** metadata from URLs, HTML pages and 
 Spotify links.
 
-More on [Intro on Medium](https://medium.com/@beppe.catanese/tweesky-dont-miss-the-twitter-card-preview-19c95f3417d9) 
+More on [Intro on Hashnode](https://beppecatanese.hashnode.dev/tweesky-dont-miss-the-twitter-card-preview)
 
 ## How to use it
 
